@@ -10,7 +10,7 @@ set cpoptions&vim
 setlocal nolisp
 setlocal autoindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 setlocal indentexpr=BicepIndent(v:lnum)
-setlocal indentkeys+=<:>,0=},0=)
+setlocal indentkeys+=<:>,0=},0=),0=*/
 let b:undo_indent = 'setlocal lisp< autoindent< shiftwidth< tabstop< softtabstop<'
   \ . ' expandtab< indentexpr< indentkeys<'
 
@@ -52,8 +52,8 @@ function! BicepIndent(lnum)
     let thisindent += 2
   endif
 
-  " If the previous line ends a block comment */, decrease by one
-  if prevline =~# '\*/'
+  " If the this line ends a block comment */, decrease by one
+  if thisline =~# '\*/'
     let thisindent -= 2
   endif
 
