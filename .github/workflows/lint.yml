@@ -1,0 +1,14 @@
+name: lint
+on: [push]
+
+jobs:
+  vimscript:
+    runs-on: ubuntu-latest
+    container: alpine:3
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          apk add make
+          apk add py3-setuptools  # Missing vint dependency
+          apk add vint
+      - run: make check-vimscript
