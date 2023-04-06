@@ -34,6 +34,9 @@ syn region  bicepModuleString start=/'/ skip=/\\\\\|\\'/ end=/'/ contains=bicepS
 syn match bicepDecoratorName /@\s*\h\%(\w\|\.\)*/ contains=bicepDecorator
 syn match bicepDecorator     /@/ contained
 
+syn match bicepPreProc    /#[-_a-zA-Z0-9]\+/ nextgroup=bicepPreProcArg skipwhite
+syn match bicepPreProcArg /\w\+/ skipwhite contained nextgroup=bicepPreProcArg
+
 syn region  bicepComment start="/\*" end="\*/" contains=bicepTodo,@Spell
 syn region  bicepComment start="//" end="$" contains=bicepTodo,@Spell
 syn keyword bicepTodo    TODO FIXME XXX BUG contained
@@ -60,6 +63,9 @@ hi def link bicepModuleString      String
 hi def link bicepExisting          Label
 
 hi def link bicepDecorator         Define
+
+hi def link bicepPreProc           PreProc
+hi def link bicepPreProcArg        Comment
 
 hi def link bicepComment           Comment
 hi def link bicepTodo              Todo
