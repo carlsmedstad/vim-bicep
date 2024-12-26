@@ -1,2 +1,2 @@
 " vint: -ProhibitAutocmdWithNoGroup
-au BufRead,BufNewFile *.bicep set filetype=bicep
+au BufRead,BufNewFile *.bicep,*.bicepparam set filetype=bicep
