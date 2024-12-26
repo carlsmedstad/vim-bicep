@@ -14,6 +14,9 @@ syn case match
 
 syn keyword bicepDataType  array bool int object string contained
 
+syntax keyword bicepUsing using nextgroup=bicepPath skipwhite
+syntax match bicepPath contained /'.\{-}\.bicep'\|'br:.\{-}'\|'ts:.\{-}'/
+
 syn keyword bicepStatement var module targetScope
 
 syn keyword bicepStatement     param nextgroup=bicepParameterName skipwhite
@@ -57,6 +60,8 @@ syn match bicepBraces /[{}\[\]]/
 
 
 hi def link bicepDataType          Type
+hi def link bicepUsing             Include
+hi def link bicepPath              String
 hi def link bicepStatement         Statement
 hi def link bicepResourceString    String
 hi def link bicepModuleString      String
