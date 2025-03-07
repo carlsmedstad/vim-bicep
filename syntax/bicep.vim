@@ -49,7 +49,7 @@ syn keyword bicepValueNull null
 syn match   bicepValueDec  /\<[0-9]\+\([kKmMgG]b\?\)\?\>/
 
 syn region bicepValueString  start=/'/ skip=/\\\\\|\\'/ end=/'/ contains=bicepStringInterp,bicepEscape
-syn region bicepStringInterp start=/${/ end=/}/ contained
+syn region bicepStringInterp start=/${/ end=/}/ contained contains=bicepValueString
 syn match  bicepEscape       /\\n/ contained
 syn match  bicepEscape       /\\r/ contained
 
